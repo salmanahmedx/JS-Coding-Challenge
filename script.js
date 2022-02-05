@@ -73,24 +73,67 @@
 
 // console.log(finalArray)
 
-// Problem 04 : Fibonacci Generator
+// Problem 04 : Fibonacci Generator (x is the addition of all previous values of that array)
 
-let seqArray = [];
-const fibonacciGenerator = function (n) {
-    let x = 1;
-    if (n === 0) {
-        seqArray.push("Number should be greater than 0");
-    } else if (n === 1) {
-        seqArray.push(0);
-    } else if (n === 2) {
-        seqArray.push(0, 1);
-    } else {
-        seqArray.push(0, 1)
-        for (x = 1; seqArray.length < n; x += x) {
-            seqArray.push(x);
+// let seqArray = [];
+// const fibonacciGenerator = function (n) {
+//     let x = 1;
+//     if (n === 0) {
+//         seqArray.push("Number should be greater than 0");
+//     } else if (n === 1) {
+//         seqArray.push(0);
+//     } else if (n === 2) {
+//         seqArray.push(0, 1);
+//     } else {
+//         seqArray.push(0, 1)
+//         for (x = 1; seqArray.length < n; x += x) {
+//             seqArray.push(x);
+//         }
+//     }
+//     return seqArray;
+// }
+
+//problem 5 // cost for first 100 people = 5000; second 100 people = 4000; above 200 people = first 100 > 5000, second 100 > 4000, remaining > 3000;
+
+function picnicBudget(person) {
+    let budget;
+    //errors
+    if (typeof person !== "number") return `Please provide a number`;
+    if (person < 0) return `Use a positive number`
+    //budget calculations
+    if (person <= 100) {
+        budget = person * 5000;
+    } else if (person > 100 && person <= 200) {
+        budget = (100 * 5000) + ((person - 100) * 4000)
+    }
+    else if (person > 200) {
+        budget = ((100 * 5000) + (100 * 4000)) + ((person - 200) * 3000)
+    }
+    return budget;
+}
+
+//problem 6 // first string from an array that has odd number of letters
+function oddFriend(friends) {
+    let oddFriendArray = [];
+    let friend;
+
+    for (let i = 0; i < friends.length; i++) {
+        //error
+        if (typeof (friends[i]) !== "string") { console.log(`Error! Please use a string`) }
+        //condition
+        friend = friends[i].length;
+        if (((friend % 2) !== 0) && ((friend % 3) === 0)) {
+            oddFriendArray.push(friends[i]);
+        }
+        else if (((friend % 2) !== 0) && ((friend % 5) === 0)) {
+            oddFriendArray.push(friends[i]);
+        }
+        else if (((friend % 2) !== 0) && ((friend % 7) === 0)) {
+            oddFriendArray.push(friends[i]);
         }
     }
-    return seqArray;
+    return oddFriendArray[0];
 }
-fibonacciGenerator(10)
-console.log(seqArray)
+
+
+
