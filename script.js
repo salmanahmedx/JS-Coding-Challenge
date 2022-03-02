@@ -1,6 +1,6 @@
 'use strict';
 
-// ===================== Problem 01 : LEAP YEAR
+//** ===================== Problem 01 : LEAP YEAR
 
 // const leapYear = function (year) {
 //     if (year % 4 === 0) {
@@ -17,7 +17,7 @@
 // leapYear(2020);
 
 
-// ===================== Problem 02 : Switching Values
+//** ===================== Problem 02 : Switching Values
 
 
 // let a = 3;
@@ -29,7 +29,7 @@
 // console.log(a, b);
 
 
-// ===================== Problem 03 : Write a program that prints the numbers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz"
+//** ===================== Problem 03 : Write a program that prints the numbers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz"
 
 
 // let number;
@@ -47,7 +47,7 @@
 // }
 
 
-// Problem 03 : With Arrays
+//** ===================== Problem 04 : : With Arrays
 
 
 // let number;
@@ -73,7 +73,7 @@
 
 // console.log(finalArray)
 
-// Problem 04 : Fibonacci Generator (x is the addition of all previous values of that array)
+//** ===================== Problem 05 : Fibonacci Generator (x is the addition of all previous values of that array)
 
 // let seqArray = [];
 // const fibonacciGenerator = function (n) {
@@ -93,47 +93,88 @@
 //     return seqArray;
 // }
 
-//problem 5 // cost for first 100 people = 5000; second 100 people = 4000; above 200 people = first 100 > 5000, second 100 > 4000, remaining > 3000;
+//** ===================== Problem 06 : cost for first 100 people = 5000; second 100 people = 4000; above 200 people = first 100 > 5000, second 100 > 4000, remaining > 3000;
 
-function picnicBudget(person) {
-    let budget;
-    //errors
-    if (typeof person !== "number") return `Please provide a number`;
-    if (person < 0) return `Use a positive number`
-    //budget calculations
-    if (person <= 100) {
-        budget = person * 5000;
-    } else if (person > 100 && person <= 200) {
-        budget = (100 * 5000) + ((person - 100) * 4000)
+// function picnicBudget(person) {
+//     let budget;
+//     //errors
+//     if (typeof person !== "number") return `Please provide a number`;
+//     if (person < 0) return `Use a positive number`
+//     //budget calculations
+//     if (person <= 100) {
+//         budget = person * 5000;
+//     } else if (person > 100 && person <= 200) {
+//         budget = (100 * 5000) + ((person - 100) * 4000)
+//     }
+//     else if (person > 200) {
+//         budget = ((100 * 5000) + (100 * 4000)) + ((person - 200) * 3000)
+//     }
+//     return budget;
+// }
+
+//** ===================== Problem 07 : first string from an array that has odd number of letters
+
+// function oddFriend(friends) {
+//     let oddFriendArray = [];
+//     let friend;
+
+//     for (let i = 0; i < friends.length; i++) {
+//         //error
+//         if (typeof (friends[i]) !== "string") { console.log(`Error! Please use a string`) }
+//         //condition
+//         friend = friends[i].length;
+//         if (((friend % 2) !== 0) && ((friend % 3) === 0)) {
+//             oddFriendArray.push(friends[i]);
+//         }
+//         else if (((friend % 2) !== 0) && ((friend % 5) === 0)) {
+//             oddFriendArray.push(friends[i]);
+//         }
+//         else if (((friend % 2) !== 0) && ((friend % 7) === 0)) {
+//             oddFriendArray.push(friends[i]);
+//         }
+//     }
+//     return oddFriendArray[0];
+// }
+
+//** ===================== Problem 08 : Print all the multiplication tables with numbers from 1 to 10
+
+// for (let n = 1; n < 11; n++) {
+//     console.log(`Table of ${n}`)
+//     for (let i = 1; i < 11; i++) {
+//         console.log(`${n} * ${i} = ${n * i}`)
+//     }
+// }
+
+//** ===================== Problem 09 : Calculate the sum of odd numbers greater than 10 and less than 30
+
+// let sum = 0;
+// for (let i = 1; i < 30; i += 2) {
+//     sum = sum + i;
+// }
+
+//** ===================== Problem 10 : Calculate the sum of numbers in an array of numbers
+
+// let arr = [2, 3, -1, 5, 7, 9, 10, 15, 95];
+
+// let sum = null;
+// for (const x of arr) {
+//     sum = sum + x;
+// }
+
+//** ===================== Problem 11 : Create a function that receives an array of numbers and returns an array containing only the positive numbers
+
+let arr = [2, 3, -1, 5, -7, 9, -10, 15, 95]
+
+const positiveNumArr = (arr) => {
+    let positiveArray = [];
+    for (const x of arr) {
+        if (x > 0) positiveArray.push(x);
     }
-    else if (person > 200) {
-        budget = ((100 * 5000) + (100 * 4000)) + ((person - 200) * 3000)
-    }
-    return budget;
+    return positiveArray;
 }
+const positiveArray = positiveNumArr(arr)
 
-//problem 6 // first string from an array that has odd number of letters
-function oddFriend(friends) {
-    let oddFriendArray = [];
-    let friend;
+// Filter method
 
-    for (let i = 0; i < friends.length; i++) {
-        //error
-        if (typeof (friends[i]) !== "string") { console.log(`Error! Please use a string`) }
-        //condition
-        friend = friends[i].length;
-        if (((friend % 2) !== 0) && ((friend % 3) === 0)) {
-            oddFriendArray.push(friends[i]);
-        }
-        else if (((friend % 2) !== 0) && ((friend % 5) === 0)) {
-            oddFriendArray.push(friends[i]);
-        }
-        else if (((friend % 2) !== 0) && ((friend % 7) === 0)) {
-            oddFriendArray.push(friends[i]);
-        }
-    }
-    return oddFriendArray[0];
-}
-
-
+const positiveArrayF = arr.filter((x) => x > 0)
 
