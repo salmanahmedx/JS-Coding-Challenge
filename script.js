@@ -187,25 +187,50 @@
 
 //** ===================== Problem 13 : Create a function that will return a Boolean specifying if a number is prime
 
-function isPrime(n) {
-    if (n < 2) return false;
-    if (n === 2) return true;
-    const max = Math.sqrt(n)
-    for (let i = 2; i <= max; i++) {
-        if (n % i === 0) return false;
-    }
-    return true;
-}
+// function isPrime(n) {
+//     if (n < 2) return false;
+//     if (n === 2) return true;
+//     const max = Math.sqrt(n)
+//     for (let i = 2; i <= max; i++) {
+//         if (n % i === 0) return false;
+//     }
+//     return true;
+// }
 
 //** ===================== Problem 14 : Calculate the sum of digits of a positive integer number
 
-function sum(num) {
-    const numToString = num.toString()
-    let sum = 0;
-    for (const x of numToString) {
-        const stringToNum = Number.parseInt(x)
-        sum += stringToNum;
-    }
-    return sum;
-}
+// function sum(num) {
+//     const numToString = num.toString()
+//     let sum = 0;
+//     for (const x of numToString) {
+//         const stringToNum = Number.parseInt(x)
+//         sum += stringToNum;
+//     }
+//     return sum;
+// }
+
+//** ===================== Problem 15 : Reverse an array (without using reverse)
+
+// let arr = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
+// let reverseArr = []
+
+// for (const x of arr) {
+//     reverseArr.unshift(x)
+// }
+
+//** ===================== Problem 16 : Reverse a string
+
+// const str = "Hello there! How was your day?"
+// let reverseStrArr = [];
+
+// for (let i = 0; i < str.length; i++) {
+//     reverseStrArr.unshift(str[i])
+// }
+// let reverseStr = reverseStrArr.join("")
+
+//better way
+// let newStr = "";
+// for (let i = str.length - 1; i >= 0; i--) {
+//     newStr += str[i];
+// }
 
