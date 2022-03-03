@@ -163,18 +163,49 @@
 
 //** ===================== Problem 11 : Create a function that receives an array of numbers and returns an array containing only the positive numbers
 
-let arr = [2, 3, -1, 5, -7, 9, -10, 15, 95]
+// let arr = [2, 3, -1, 5, -7, 9, -10, 15, 95]
 
-const positiveNumArr = (arr) => {
-    let positiveArray = [];
-    for (const x of arr) {
-        if (x > 0) positiveArray.push(x);
+// const positiveNumArr = (arr) => {
+//     let positiveArray = [];
+//     for (const x of arr) {
+//         if (x > 0) positiveArray.push(x);
+//     }
+//     return positiveArray;
+// }
+// const positiveArray = positiveNumArr(arr)
+
+// // Filter method
+
+// const positiveArrayF = arr.filter((x) => x > 0)
+
+//** ===================== Problem 12 : Find the maximum number in an array of
+
+
+// let arr = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
+
+// const sortedArr = arr.sort((a, b) => a - b)
+
+//** ===================== Problem 13 : Create a function that will return a Boolean specifying if a number is prime
+
+function isPrime(n) {
+    if (n < 2) return false;
+    if (n === 2) return true;
+    const max = Math.sqrt(n)
+    for (let i = 2; i <= max; i++) {
+        if (n % i === 0) return false;
     }
-    return positiveArray;
+    return true;
 }
-const positiveArray = positiveNumArr(arr)
 
-// Filter method
+//** ===================== Problem 14 : Calculate the sum of digits of a positive integer number
 
-const positiveArrayF = arr.filter((x) => x > 0)
+function sum(num) {
+    const numToString = num.toString()
+    let sum = 0;
+    for (const x of numToString) {
+        const stringToNum = Number.parseInt(x)
+        sum += stringToNum;
+    }
+    return sum;
+}
 
