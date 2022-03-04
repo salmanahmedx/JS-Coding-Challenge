@@ -234,3 +234,34 @@
 //     newStr += str[i];
 // }
 
+
+//** ===================== Problem 17 : Create a function that will receive two arrays of numbers as arguments and return an array composed of all the numbers that are either in the first array or second array but not in both
+
+
+let arr1 = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
+let arr2 = [-5, 150, -33, 12, -219, 5, 390, 40, 1];
+let newArr = [];
+
+function uniqueArray(arr1, arr2) {
+    for (const x of arr1) {
+        if (!arr2.includes(x)) newArr.push(x);
+    }
+    for (const y of arr2) {
+        if (!arr1.includes(y)) newArr.push(y);
+    }
+}
+uniqueArray(arr1, arr2)
+
+//** ===================== Problem 18 : Create a function that will add two positive numbers of indefinite size. The numbers are received as strings and the result should be also provided as string.
+
+const num1Str = '23094890828739'
+const num2Str = '32840990828739'
+let sum = 0;
+function sumStr(numStr1, numStr2) {
+    const num1 = Number.parseInt(num1Str)
+    const num2 = Number.parseInt(num2Str)
+    sum = num1 + num2;
+    sum = sum.toString()
+    return sum;
+}
+sumStr(num1Str, num2Str)
