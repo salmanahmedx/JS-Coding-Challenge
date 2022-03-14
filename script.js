@@ -311,39 +311,75 @@
 
 //** ===================== Problem 21 : The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor of the number 600851475143?
 
-let primeFactors = [];
-let largestPrimeFactor;
-const primeFactorGen = (num) => {
-    primeFactors = [];
+// let primeFactors = [];
+// let largestPrimeFactor;
+// const primeFactorGen = (num) => {
+//     primeFactors = [];
 
-    // determining the factors
+//     // determining the factors
 
-    for (let i = 2; i * i < num; i++) {
+//     for (let i = 2; i * i < num; i++) {
+//         if (num % i === 0) {
+//             let curr = i;
+//             const sqrtOfCurr = Math.sqrt(curr);
+//             let isPrime = true;
+
+//             // checking if the factor is prime
+
+//             for (let z = 2; z < sqrtOfCurr; z++) {
+//                 if (curr % z === 0) {
+//                     isPrime = false;
+//                 }
+//             }
+
+//             if (isPrime) {
+//                 primeFactors.push(curr)
+//             }
+//         }
+//     }
+
+//     // determining the largest factor
+
+//     largestPrimeFactor = primeFactors.pop()
+//     return largestPrimeFactor;
+// }
+
+// // primeFactorGen(13195)
+// primeFactorGen(600851475143)
+// console.log(largestPrimeFactor)
+
+//** ===================== Problem 22 : By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13. What is the 10001st prime number ?
+
+let isPrime = true;
+let primeArr = []
+
+const primeNumber = (num) => {
+    isPrime = true;
+    if (num === 0) return isPrime = false;
+    if (num === 1) return isPrime = false;
+
+    for (let i = 2; i <= (num / 2); i++) {
         if (num % i === 0) {
-            let curr = i;
-            const sqrtOfCurr = Math.sqrt(curr);
-            let isPrime = true;
-
-            // checking if the factor is prime
-
-            for (let z = 2; z < sqrtOfCurr; z++) {
-                if (curr % z === 0) {
-                    isPrime = false;
-                }
-            }
-
-            if (isPrime) {
-                primeFactors.push(curr)
-            }
+            return isPrime = false;
         }
     }
-
-    // determining the largest factor
-
-    largestPrimeFactor = primeFactors.pop()
-    return largestPrimeFactor;
+    if (isPrime === true) {
+        primeArr.push(num);
+    }
 }
 
-// primeFactorGen(13195)
-primeFactorGen(600851475143)
-console.log(largestPrimeFactor)
+
+const nthPrimeNumber = (n) => {
+    let range = 100;
+    for (let i = 2; i < range; i++) {
+        if (primeArr.length !== n) {
+            primeNumber(i);
+            range++;
+        }
+    }
+    const nthDigit = primeArr.slice(-1)
+    return nthDigit;
+}
+
+const x = nthPrimeNumber(10001)
+console.log(x)
