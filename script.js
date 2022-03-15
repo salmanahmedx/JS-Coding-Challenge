@@ -388,14 +388,32 @@
 
 const palindrome = (n) => {
     let arr = [];
-    for (let m = 10; m < 100; m++) {
-        for (let n = 10; n < 100; n++) {
+    let range;
+    let start;
+    if (n === 1) {
+        range = 10;
+        start = 1;
+    } else if (n === 2) {
+        range = 100;
+        start = 10;
+    } else if (n === 3) {
+        range = 1000;
+        start = 100;
+    } else {
+        console.log(`Please enter 1-3 digit numbers`)
+    }
+
+    for (let m = start; m < range; m++) {
+        for (let n = start; n < range; n++) {
             const sum = m * n;
             const reverseSum = Number(sum.toString().split('').reverse().join(""))
             if (sum === reverseSum) arr.push(sum);
         }
     }
     const largestPalindrome = (arr.sort((a, b) => a - b)).slice(-1)
+    const [x] = largestPalindrome;
+    return x;
 }
 
-palindrome(0)
+const largestPalindrome = palindrome(3)
+console.log(largestPalindrome)
