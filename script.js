@@ -350,36 +350,52 @@
 
 //** ===================== Problem 22 : By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13. What is the 10001st prime number ?
 
-let isPrime = true;
-let primeArr = []
+// let isPrime = true;
+// let primeArr = []
 
-const primeNumber = (num) => {
-    isPrime = true;
-    if (num === 0) return isPrime = false;
-    if (num === 1) return isPrime = false;
+// const primeNumber = (num) => {
+//     isPrime = true;
+//     if (num === 0) return isPrime = false;
+//     if (num === 1) return isPrime = false;
 
-    for (let i = 2; i <= (num / 2); i++) {
-        if (num % i === 0) {
-            return isPrime = false;
+//     for (let i = 2; i <= (num / 2); i++) {
+//         if (num % i === 0) {
+//             return isPrime = false;
+//         }
+//     }
+//     if (isPrime === true) {
+//         primeArr.push(num);
+//     }
+// }
+
+
+// const nthPrimeNumber = (n) => {
+//     let range = 100;
+//     for (let i = 2; i < range; i++) {
+//         if (primeArr.length !== n) {
+//             primeNumber(i);
+//             range++;
+//         }
+//     }
+//     const nthDigit = primeArr.slice(-1)
+//     return nthDigit;
+// }
+
+// const x = nthPrimeNumber(10001)
+// console.log(x)
+
+//** ===================== Problem 23 : A palindromic number reads the same both ways.The largest palindrome made from the product of two 2 - digit numbers is 9009 = 91 × 99. Find the largest palindrome made from the product of two 3 - digit numbers.
+
+const palindrome = (n) => {
+    let arr = [];
+    for (let m = 10; m < 100; m++) {
+        for (let n = 10; n < 100; n++) {
+            const sum = m * n;
+            const reverseSum = Number(sum.toString().split('').reverse().join(""))
+            if (sum === reverseSum) arr.push(sum);
         }
     }
-    if (isPrime === true) {
-        primeArr.push(num);
-    }
+    const largestPalindrome = (arr.sort((a, b) => a - b)).slice(-1)
 }
 
-
-const nthPrimeNumber = (n) => {
-    let range = 100;
-    for (let i = 2; i < range; i++) {
-        if (primeArr.length !== n) {
-            primeNumber(i);
-            range++;
-        }
-    }
-    const nthDigit = primeArr.slice(-1)
-    return nthDigit;
-}
-
-const x = nthPrimeNumber(10001)
-console.log(x)
+palindrome(0)
