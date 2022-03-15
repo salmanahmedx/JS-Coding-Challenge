@@ -386,34 +386,64 @@
 
 //** ===================== Problem 23 : A palindromic number reads the same both ways.The largest palindrome made from the product of two 2 - digit numbers is 9009 = 91 × 99. Find the largest palindrome made from the product of two 3 - digit numbers.
 
-const palindrome = (n) => {
-    let arr = [];
-    let range;
-    let start;
-    if (n === 1) {
-        range = 10;
-        start = 1;
-    } else if (n === 2) {
-        range = 100;
-        start = 10;
-    } else if (n === 3) {
-        range = 1000;
-        start = 100;
-    } else {
-        console.log(`Please enter 1-3 digit numbers`)
-    }
+// const palindrome = (n) => {
+//     let arr = [];
+//     let range;
+//     let start;
+//     if (n === 1) {
+//         range = 10;
+//         start = 1;
+//     } else if (n === 2) {
+//         range = 100;
+//         start = 10;
+//     } else if (n === 3) {
+//         range = 1000;
+//         start = 100;
+//     } else {
+//         console.log(`Please enter 1-3 digit numbers`)
+//     }
 
-    for (let m = start; m < range; m++) {
-        for (let n = start; n < range; n++) {
-            const sum = m * n;
-            const reverseSum = Number(sum.toString().split('').reverse().join(""))
-            if (sum === reverseSum) arr.push(sum);
+//     for (let m = start; m < range; m++) {
+//         for (let n = start; n < range; n++) {
+//             const sum = m * n;
+//             const reverseSum = Number(sum.toString().split('').reverse().join(""))
+//             if (sum === reverseSum) arr.push(sum);
+//         }
+//     }
+//     const largestPalindrome = (arr.sort((a, b) => a - b)).slice(-1)
+//     const [x] = largestPalindrome;
+//     return x;
+// }
+
+// const largestPalindrome = palindrome(3)
+// console.log(largestPalindrome)
+
+//** ===================== Problem 24 : 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder. What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20 ?
+
+let divisible;
+const smallestDivisibleNum = (n) => {
+    let limit = n + 1;
+    let range = 100;
+    let divisibleNums = [];
+    for (let i = 1; i < range; i++) {
+        divisible = true;
+        for (let condition = 1; condition < limit; condition++) {
+            if (!(i % condition === 0)) {
+                divisible = false;
+            }
+        }
+        console.log(i)
+        if (divisible) {
+            divisibleNums.push(i)
+        }
+        if (divisibleNums.length === 0) {
+            range++;
+        } else {
+            range = 0;
         }
     }
-    const largestPalindrome = (arr.sort((a, b) => a - b)).slice(-1)
-    const [x] = largestPalindrome;
-    return x;
+    console.log(divisibleNums)
 }
 
-const largestPalindrome = palindrome(3)
-console.log(largestPalindrome)
+smallestDivisibleNum(20)
+
