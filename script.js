@@ -420,30 +420,52 @@
 
 //** ===================== Problem 24 : 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder. What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20 ?
 
-let divisible;
-const smallestDivisibleNum = (n) => {
-    let limit = n + 1;
-    let range = 100;
-    let divisibleNums = [];
-    for (let i = 1; i < range; i++) {
-        divisible = true;
-        for (let condition = 1; condition < limit; condition++) {
-            if (!(i % condition === 0)) {
-                divisible = false;
-            }
-        }
-        console.log(i)
-        if (divisible) {
-            divisibleNums.push(i)
-        }
-        if (divisibleNums.length === 0) {
-            range++;
-        } else {
-            range = 0;
-        }
+// let divisible;
+// const smallestDivisibleNum = (n) => {
+//     let limit = n + 1;
+//     let range = 100;
+//     let divisibleNums = [];
+//     for (let i = 1; i < range; i++) {
+//         divisible = true;
+//         for (let condition = 1; condition < limit; condition++) {
+//             if (!(i % condition === 0)) {
+//                 divisible = false;
+//             }
+//         }
+//         console.log(i)
+//         if (divisible) {
+//             divisibleNums.push(i)
+//         }
+//         if (divisibleNums.length === 0) {
+//             range++;
+//         } else {
+//             range = 0;
+//         }
+//     }
+//     console.log(divisibleNums)
+// }
+
+// smallestDivisibleNum(20)
+
+//** ===================== Problem 25 : The sum of the squares of the first ten natural numbers is 385,The square of the sum of the first ten natural numbers is 3025, Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 2640. Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+
+let totalSumOfSquares = 0;
+let totalSquareOfSum = 0;
+const sumOfSquares = (n) => {
+    for (let i = 1; i <= n; i++) {
+        totalSumOfSquares += i ** 2
     }
-    console.log(divisibleNums)
+}
+sumOfSquares(100)
+
+const squareOfSum = (n) => {
+    for (let i = 1; i <= n; i++) {
+        totalSquareOfSum += i;
+    }
+    totalSquareOfSum = totalSquareOfSum ** 2;
 }
 
-smallestDivisibleNum(20)
+squareOfSum(100)
 
+let difference = totalSquareOfSum - totalSumOfSquares;
+console.log(difference)
