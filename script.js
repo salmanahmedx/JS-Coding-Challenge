@@ -508,28 +508,63 @@ const digitForTest = `7316717653133062491922511967442657474235534919493496983520
 
 //** ===================== Problem 27 : A Pythagorean triplet is a set of three natural numbers, a < b < c, for which, a2 + b2 = c2. For example, 32 + 42 = 9 + 16 = 25 = 52. There exists exactly one Pythagorean triplet for which a + b + c = 1000. Find the product abc.
 
-let range = 1000;
-let arr = []
-let product;
-const onlyPythagoreanTriplet = () => {
-    for (let x = 1; x < 1000; x++) {
-        let a = x;
-        for (let y = 1; y < 1000; y++) {
-            let b = y;
-            for (let z = 1; z < 1000; z++) {
-                let c = z;
-                if (a ** 2 + b ** 2 === c ** 2 && a + b + c === 1000) {
-                    if (!arr.includes(a, b, c)) {
-                        arr = []
-                        arr.push(a, b, c)
-                    }
-                }
+// let range = 1000;
+// let arr = []
+// let product;
+// const onlyPythagoreanTriplet = () => {
+//     for (let x = 1; x < 1000; x++) {
+//         let a = x;
+//         for (let y = 1; y < 1000; y++) {
+//             let b = y;
+//             for (let z = 1; z < 1000; z++) {
+//                 let c = z;
+//                 if (a ** 2 + b ** 2 === c ** 2 && a + b + c === 1000) {
+//                     if (!arr.includes(a, b, c)) {
+//                         arr = []
+//                         arr.push(a, b, c)
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     const [a, b, c] = arr
+//     product = a * b * c;
+// }
+
+// onlyPythagoreanTriplet();
+// console.log(product)
+
+//** ===================== Problem 28 : The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17. Find the sum of all the primes below two million.
+
+let isPrime = true;
+let primeArr = []
+const prime = (n) => {
+    if (n === 2 || n === 3) { primeArr.push(n) }
+    else {
+        const sqrt = Math.sqrt(n)
+        for (let i = 2; i <= sqrt; i++) {
+            if (n % i === 0) {
+                isPrime = false;
             }
         }
+        if (isPrime) {
+            primeArr.push(n)
+        };
+        isPrime = true;
     }
-    const [a, b, c] = arr
-    product = a * b * c;
 }
 
-onlyPythagoreanTriplet();
-console.log(product)
+const checkPrime = (n) => {
+    for (let i = 2; i < n; i++) {
+        prime(i);
+    }
+    const sumOfThePrimes = primeArr.reduce((acc, curr) => {
+        acc += curr;
+        return acc;
+    }, 0)
+    return sumOfThePrimes;
+}
+
+const sum = checkPrime(2000000)
+console.log(sum)
+
