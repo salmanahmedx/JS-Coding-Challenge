@@ -476,29 +476,29 @@ const digitForTest = `7316717653133062491922511967442657474235534919493496983520
 //* ---> Find the thirteen adjacent digits in the 1000 - digit number that have the greatest product.What is the value of this product ?
 
 let largestProduct = 1;
+let productSample = 1;
+let startingValue = 0;
+let range = 13;
+
 const adjacentDigits = (n) => {
     const array = n.toString().split("");
-
-    let productSample = 1;
-    let start = 0;
-    let range = 4;
     let stopCondition = array.length;
-
 
     for (let i = 1; i < stopCondition; i++) {
         if (range >= array.length) {
             stopCondition = 0;
             range = 0;
         }
-        for (let start = 0; start < range; start++) {
+        for (let start = startingValue; start < range; start++) {
             productSample *= Number(array[start]);
         }
-        start = start + 1;
+        startingValue = startingValue + 1;
         range = range + 1;
-
+        console.log(largestProduct)
         if (largestProduct < productSample) {
             largestProduct = productSample;
         }
+        console.log(largestProduct)
         productSample = 1;
     }
 }
